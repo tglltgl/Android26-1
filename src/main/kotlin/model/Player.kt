@@ -1,9 +1,18 @@
 package model
 
+enum class Position(val title: String) {
+    GOALKEEPER("вратарь"),
+    DEFENDER("защитник"),
+    MIDFIELDER("полузащитник"),
+    FORWARD("нападающий");
+
+    override fun toString(): String = title
+}
+
 data class Player(
     val name: String,          // Имя
     val team: Team,            // Команда (объект класса Team)
-    val position: String,      // Позиция (вратарь, защитник и т.д.)
+    val position: Position,    // Позиция (теперь это Enum)
     val agency: String?,       // Агентство (может быть null)
     val price: Long,           // Цена
     val matches: Int,          // Матчи
